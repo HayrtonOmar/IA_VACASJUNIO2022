@@ -27,12 +27,12 @@ function reflex_agent(location, state, mode) {
   
   function test(states) {
     var action, cont, location, mode, state;
-    mode = [false];
-    cont = 0;
+    var mode = [false];
+    var cont = 0;
   
-    while (cont !== 8) {
+    while (cont != 8) {
       location = states[0];
-      state = [states[2], states[1]][states[0] === "A"];
+      state = states[0] == "A" ? states[1] : states[2];
       action = reflex_agent(location, state, mode);
   
       if (action === "CLEAN") {
@@ -66,7 +66,7 @@ function reflex_agent(location, state, mode) {
       //console.log("Location: " + location + " | Action: " + action + "  | current_status: ", states);
       document.getElementById("log").innerHTML+="<br>Location: ".concat(location).concat(" | Action: ").concat(action).concat(" | Current_status:").concat(states);
       cont = cont + 1;
-      setTimeout(function(){ test(states); }, 2000);
+      setTimeout(function(){ test(states); }, 4000);
     }
   }
   
