@@ -63,7 +63,8 @@ function reflex_agent(location, state, mode) {
         }
       }
   
-      console.log("Location: " + location + " | Action: " + action + "  | current_status: ", states);
+      //console.log("Location: " + location + " | Action: " + action + "  | current_status: ", states);
+      document.getElementById("log").innerHTML+="<br>Location: ".concat(location).concat(" | Action: ").concat(action_result).concat(" | Current_status:").concat(states);
       cont = cont + 1;
       setTimeout(function(){ test(states); }, 2000);
     }
